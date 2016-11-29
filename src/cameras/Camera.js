@@ -17,6 +17,11 @@ const cameraSchema = new Schema({
     default: true
   },
 
+  lenses: [{
+    type: Schema.ObjectId,
+    ref: 'Lens'
+  }],
+
   active: {
     type: Boolean,
     default: true
