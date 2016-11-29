@@ -1,4 +1,52 @@
-export const index = function (req, res, next) {
-  const data = {film: 'Tri-X 400'}
-  res.json(data)
+import Film from './Film'
+
+export const index = function (req, res) {
+  Film.find({})
+    .then(data => {
+      res.json({records: data})
+    })
+    .catch(err => {
+      res.status(400).json({error: err.message})
+    })
+}
+
+export const create = function (req, res) {
+  const film = new Film(req.body)
+  film.save()
+    .then(data => {
+      res.json(data)
+    })
+    .catch(err => {
+      res.status(400).json({error: err.message})
+    })
+}
+
+export const show = function (req, res) {
+  Film.findById(req.params.id)
+    .then(data => {
+      res.json(data)
+    })
+    .catch(err => {
+      res.status(400).json({error: err.message})
+    })
+}
+
+export const update = function (req, res) {
+  Film.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(data => {
+      res.json(data)
+    })
+    .catch(err => {
+      res.status(400).json({error: err.message})
+    })
+}
+
+export const destroy = function (req, res) {
+  Film.findByIdAndRemove(req.params.id)
+    .then(data => {
+      res.json(data)
+    })
+    .catch(err => {
+      res.status(400).json({error: err.message})
+    })
 }
