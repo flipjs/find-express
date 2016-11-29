@@ -1,0 +1,33 @@
+{
+  "name": "find-express",
+  "version": "1.0.0",
+  "description": "Film Is Not Dead API using Node/Express",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "lint": "eslint .",
+    "lint:dev": "esw --color -w .",
+    "lint:fix": "npm run lint -- --fix",
+    "prestart": "npm run build",
+    "start": "node dist/index.js"
+  },
+  "author": "Felipe Apostol <flipjs.io@gmail.com> (http://flipjs.io/)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-eslint": "7.1.1",
+    "babel-preset-latest": "6.16.0",
+    "eslint": "3.11.1",
+    "eslint-config-standard": "6.2.1",
+    "eslint-plugin-promise": "3.4.0",
+    "eslint-plugin-standard": "2.0.1",
+    "eslint-watch": "2.1.14",
+    "nodemon": "1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "express": "4.14.0",
+    "morgan": "1.7.0"
+  }
+}
