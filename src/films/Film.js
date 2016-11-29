@@ -13,19 +13,13 @@ const filmSchema = new Schema({
   },
 
   catalog: {
-    type: String
+    type: String,
+    required: true
   },
 
   brand: {
-    type: String
-  },
-
-  type: {
-    type: String
-  },
-
-  format: {
-    type: String
+    type: Schema.ObjectId,
+    ref: 'Brand'
   },
 
   camera: {
